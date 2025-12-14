@@ -1,4 +1,0 @@
-﻿"asset_code","asset_name","category_code","asset_type","branch","division","status","description","note","total_quantity","available_quantity","vendor","purchase_date","warranty_start_date","warranty_end_date","price","is_deleted","deleted_at","deleted_by","Attachments"
-"PVN-DN-01","ATEST","L01","CCDC","DN","SOFTWARE DN","Storage","TESTDES","TESTNOTE",,,"FPT","12/5/2025","12/5/2025","12/12/2025","1,111,118.00 ₫","False",,,"0"
-"PVN-HN-01","ATEST2","L01","CCDC","HN","GA DN","Storage","TESTDES","TESTNOTE",,,"FQS","12/5/2025","12/5/2025","12/26/2025","1,111,222.00 ₫","False",,,"1"
-"PVN-DN-02","BTESTBTESTBTESTBTEST","L01","CCDC","DN","SOFTWARE DN","Storage","TESTDES","TESTN",,,"FQR","12/5/2025","12/5/2025","12/19/2025","123,123,123.00 ₫","False",,,"1"
