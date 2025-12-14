@@ -1,0 +1,4 @@
+course_agentic_ai_venv/
+.env
+__pycache__/
+.ipynb_checkpoints/
