@@ -1,0 +1,12 @@
+dotenv
+fastapi
+uvicorn
+sqlalchemy
+jinja2
+pandas
+pydantic
+pydantic[email]
+matplotlib
+requests
+aisuite
+google-genai

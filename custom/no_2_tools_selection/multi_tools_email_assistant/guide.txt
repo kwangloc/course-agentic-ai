@@ -1,3 +1,5 @@
 pip install 'pydantic[email]'
+M3_EMAIL_SERVER_API_URL=http://127.0.0.1:8000
 python -m uvicorn email_server.email_service:app --reload --port 8000
-pip install fastapi uvicorn sqlalchemy jinja2
+python -m pip install fastapi uvicorn sqlalchemy jinja2
+python -m pip install vertexai
