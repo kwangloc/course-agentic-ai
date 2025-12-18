@@ -46,6 +46,7 @@ def search_emails(query: str) -> list:
     Returns:
         List[dict]: A list of emails matching the query string.
     """
+    print(f"~ Searching emails with query: {query}")
     return requests.get(f"{BASE_URL}/emails/search", params={"q": query}).json()
 
 
@@ -61,6 +62,7 @@ def filter_emails(recipient: str = None, date_from: str = None, date_to: str = N
     Returns:
         List[dict]: A list of emails matching the given filters.
     """
+    print(f"~ Filtering emails with recipient={recipient}, date_from={date_from}, date_to={date_to}")
     params = {}
     if recipient:
         params["recipient"] = recipient
@@ -82,6 +84,7 @@ def get_email(email_id: int) -> dict:
     Returns:
         dict: A single email record if found, else raises HTTP 404.
     """
+    print(f"~ Retrieving email with ID: {email_id}")
     return requests.get(f"{BASE_URL}/emails/{email_id}").json()
 
 
@@ -95,6 +98,7 @@ def mark_email_as_read(email_id: int) -> dict:
     Returns:
         dict: The updated email record with `read: true`.
     """
+    print(f"~ Marking email as read with ID: {email_id}")
     return requests.patch(f"{BASE_URL}/emails/{email_id}/read").json()
 
 
@@ -108,6 +112,7 @@ def mark_email_as_unread(email_id: int) -> dict:
     Returns:
         dict: The updated email record with `read: false`.
     """
+    print(f"~ Marking email as unread with ID: {email_id}")
     return requests.patch(f"{BASE_URL}/emails/{email_id}/unread").json()
 
 
@@ -128,6 +133,10 @@ def send_email(recipient: str, subject: str, body: str) -> dict:
         "subject": subject,
         "body": body
     }
+    print(f"~ Sending email")
+    print(f"+ Recipient: {recipient}")
+    print(f"+ Subject: {subject}")
+    print(f"+ Body: {body}")
     return requests.post(f"{BASE_URL}/send", json=payload).json()
 
 
@@ -141,6 +150,7 @@ def delete_email(email_id: int) -> dict:
     Returns:
         dict: A confirmation message: {"message": "Email deleted"}
     """
+    print(f"~ Deleting email with ID: {email_id}")
     return requests.delete(f"{BASE_URL}/emails/{email_id}").json()
 
 
@@ -154,5 +164,6 @@ def search_unread_from_sender(sender: str) -> list:
     Returns:
         List[dict]: A list of unread emails where the sender matches the given address.
     """
+    print(f"~ Searching unread emails from sender: {sender}")
     unread = list_unread_emails()
     return [e for e in unread if e['sender'].lower() == sender.lower()]
