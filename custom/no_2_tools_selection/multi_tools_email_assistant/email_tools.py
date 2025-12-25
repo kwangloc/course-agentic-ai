@@ -134,9 +134,9 @@ def send_email(recipient: str, subject: str, body: str) -> dict:
         "body": body
     }
     print(f"~ Sending email")
-    print(f"+ Recipient: {recipient}")
-    print(f"+ Subject: {subject}")
-    print(f"+ Body: {body}")
+    print(f"\t+ Recipient: {recipient}")
+    print(f"\t+ Subject: {subject}")
+    print(f"\t+ Body: {body}")
     return requests.post(f"{BASE_URL}/send", json=payload).json()
 
 
