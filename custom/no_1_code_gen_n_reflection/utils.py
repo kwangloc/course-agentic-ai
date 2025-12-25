@@ -26,7 +26,7 @@ gemini_api_key = os.getenv("GEMINI_API_KEY")
 # Both clients read keys from env by default; explicit is also fine:
 # openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else OpenAI()
 # anthropic_client = Anthropic(api_key=anthropic_api_key) if anthropic_api_key else Anthropic()
-gemini_client = genai.Client()
+gemini_client = genai.Client(api_key=gemini_api_key)
 
 # def get_response(model: str, prompt: str) -> str:
 #     if "claude" in model.lower() or "anthropic" in model.lower():
