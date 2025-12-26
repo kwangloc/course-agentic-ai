@@ -12,3 +12,4 @@ aisuite
 google-genai
 tinydb
 ipykernel
+duckdb
