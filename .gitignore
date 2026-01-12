@@ -3,3 +3,5 @@ course_agentic_ai_venv/
 __pycache__/
 .ipynb_checkpoints/
 emails.db
+.db
+.adk
