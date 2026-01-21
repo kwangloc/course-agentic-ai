@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+
+
+
+tools:
+  search-quantity-by-name:
+    kind: postgres-sql
+    source: my-cloud-sql-source
+    description: Search for inventory items based on name.
+    parameters:
+      - name: name
+        type: string
+        description: The name of the inventory item.
+    statement: SELECT quantity FROM inventory WHERE name ILIKE '%' || $1 || '%';
+
+  search-item-by-name:
+    kind: postgres-sql
+    source: my-cloud-sql-source
+    description: Search for inventory items based on name.
+    parameters:
+      - name: name
+        type: string
+        description: The name of the inventory item.
+    statement: SELECT * FROM inventory WHERE name ILIKE '%' || $1 || '%';
+    
+  search-item-by-id:
+    kind: postgres-sql
+    source: my-cloud-sql-source
+    description: Search for an inventory item based on its ID.
+    parameters:
+      - name: item_id
+        type: string
+        description: The ID of the inventory item.
+    statement: SELECT * FROM inventory WHERE item_id = $1;
+
+  calculate-cost:
+    kind: postgres-sql
+    source: my-cloud-sql-source
+    parameters:
+      - name: item_id
+        type: string
+        description: "The ID of the item to order."
+      - name: quantity
+        type: integer
+        description: "The number of items to order."
+    statement: "SELECT CAST($2 AS NUMERIC) * unit_price AS total_cost FROM inventory WHERE item_id = $1;"
+
+toolsets:
+  inventory_toolset:
+    - search-quantity-by-name
+    - search-item-by-name
+    - search-item-by-id
+    - calculate-cost
