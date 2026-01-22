@@ -11,21 +11,18 @@ async def test_server():
         tools = await client.list_tools()
         for tool in tools:
             print(f"--- 🛠️  Tool found: {tool.name} ---")
+        
+        # print("--- 🪛  Calling get_historical_sales tool ---")
+        # result = await client.call_tool(
+        #     "get_historical_sales", {"product_id": "Camry", "start_date": "2025-11-01", "end_date": "2025-11-05"}
+        # )
+        # print(f"--- ✅  Success: {result.content[0].text} ---")
 
-        # Call get_exchange_rate tool
-        print("--- 🪛  Calling get_stock_status tool ---")
+        print("--- 🪛  Calling get_inventory_levels tool ---")
         result = await client.call_tool(
-            "get_stock_status", {}
+            "get_inventory_levels", {"product_id": "Camry"}
         )
         print(f"--- ✅  Success: {result.content[0].text} ---")
-
-        # Call get_product_stock tool
-        print("--- 🪛  Calling get_product_stock tool ---")
-        result = await client.call_tool(
-            "get_product_stock", {"product_name": "Toyota Camry"}
-        )
-        print(f"--- ✅  Success: {result.content[0].text} ---")
-
 
 if __name__ == "__main__":
     asyncio.run(test_server())

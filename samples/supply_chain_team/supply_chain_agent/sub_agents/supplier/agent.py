@@ -3,8 +3,8 @@ from .tool import find_shipping_options, execute_shipment
 
 GEMINI_2_5_FLASH = "gemini-2.5-flash"
 
-logistics_agent = LlmAgent(
-    name="LogisticsAgent",
+supplier_agent = LlmAgent(
+    name="SupplierAgent",
     model=GEMINI_2_5_FLASH,
     description=("Manages shipping and logistics to find replenishment options."),
     instruction="""
