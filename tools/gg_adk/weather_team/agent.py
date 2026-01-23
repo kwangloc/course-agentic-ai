@@ -1,6 +1,9 @@
 import datetime
 from zoneinfo import ZoneInfo
-from google.adk.agents import Agent
+from google.adk.agents.llm_agent import Agent
+
+from dotenv import load_dotenv
+load_dotenv()
 
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.

@@ -94,7 +94,7 @@ Do not add any other text before or after the code block.
 # This agent orchestrates the pipeline by running the sub_agents in order.
 # For ADK tools compatibility, the root agent must be named `root_agent`
 
-root_agent = Agent(
+root_agent = SequentialAgent(
     name="CodePipelineAgent",
     sub_agents=[code_writer_agent, code_reviewer_agent, code_refactorer_agent],
     description="Executes a sequence of code writing, reviewing, and refactoring.",
